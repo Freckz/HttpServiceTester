@@ -3,3 +3,13 @@ C:\__Protos\HttpServiceTester\Lib\bin\Debug\Lib.pdb
 C:\__Protos\HttpServiceTester\Lib\obj\Debug\ResolveAssemblyReference.cache
 C:\__Protos\HttpServiceTester\Lib\obj\Debug\Lib.dll
 C:\__Protos\HttpServiceTester\Lib\obj\Debug\Lib.pdb
+C:\Users\leguellec\Git\HttpServiceTester\Lib\bin\Debug\Lib.dll
+C:\Users\leguellec\Git\HttpServiceTester\Lib\bin\Debug\Lib.pdb
+C:\Users\leguellec\Git\HttpServiceTester\Lib\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\leguellec\Git\HttpServiceTester\Lib\obj\Debug\Lib.dll
+C:\Users\leguellec\Git\HttpServiceTester\Lib\obj\Debug\Lib.pdb
+C:\Projets\HttpServiceTester\Lib\bin\Debug\Lib.dll
+C:\Projets\HttpServiceTester\Lib\bin\Debug\Lib.pdb
+C:\Projets\HttpServiceTester\Lib\obj\Debug\ResolveAssemblyReference.cache
+C:\Projets\HttpServiceTester\Lib\obj\Debug\Lib.dll
+C:\Projets\HttpServiceTester\Lib\obj\Debug\Lib.pdb

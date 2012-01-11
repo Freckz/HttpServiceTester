@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\__Protos\HttpServiceTester\RequestTester\obj\x86\Debug\
+C:\Projets\HttpServiceTester\RequestTester\obj\x86\Debug\
 RequestTester
 none
 false
 DEBUG;TRACE
-C:\__Protos\HttpServiceTester\RequestTester\App.xaml
+C:\Projets\HttpServiceTester\RequestTester\App.xaml
 21463638958
 2-327641602
-7127269044
-17216883461
+7-541954302
+171404184129
 ConnectWindow.xaml;MainWindow.xaml;
 
 False

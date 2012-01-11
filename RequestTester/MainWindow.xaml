@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
-        Title="RequestTester" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" >
+        Title="RequestTester" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="643" d:DesignWidth="1326" SizeToContent="WidthAndHeight">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="480"></ColumnDefinition>
@@ -40,7 +40,7 @@
                     <Slider     Grid.Row="0" Grid.Column="1" Name="slRequestSelect"      Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Minimum="10" Maximum="500" IsSnapToTickEnabled="True" Ticks="10,50,100,200,300,400,500" Margin="20,6,0,0" ValueChanged="ChangeFrequency" />
                     <Label      Grid.Row="0" Grid.Column="1" Name="lbRequestValue"       Height="28" Content="{Binding ElementName=slRequestSelect, Path=Value}" HorizontalAlignment="Left" Margin="188,6,0,0" VerticalAlignment="Top" />
                     <Label      Grid.Row="1" Grid.Column="0" Name="lbRequestUrl"         Height="28" Content="Request Url : " HorizontalAlignment="Left" Margin="6,7,0,0" VerticalAlignment="Top" />
-                    <TextBox    Grid.Row="1" Grid.Column="1" Name="tbRequestUrl"         Height="23" Text="http://localhost" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,9,0,0" Width="200" LostFocus="tbRequestUrlFocusLost" KeyDown="CheckEnter" />
+                    <TextBox    Grid.Row="1" Grid.Column="1" Name="tbRequestUrl"         Height="23" Text="http://client.loc" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,9,0,0" Width="200" LostFocus="tbRequestUrlFocusLost" KeyDown="CheckEnter" />
                     <Label      Grid.Row="2" Grid.Column="0" Name="lbFrontalWorkingTime" Height="28" Content="Frontal working time: " HorizontalAlignment="Left" Margin="6,7,0,0" VerticalAlignment="Top" />
                     <Slider     Grid.Row="2" Grid.Column="1" Name="slFrontalWorkingTime" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Width="154" Minimum="0" Maximum="100" IsSnapToTickEnabled="True" TickFrequency="5" Margin="20,6,0,0" ValueChanged="slFrontalWorkingTimeValueChanged" />
                     <Label      Grid.Row="2" Grid.Column="1" Name="vFrontalWorkingTime"  Height="28" Content="{Binding ElementName=slFrontalWorkingTime, Path=Value}" HorizontalAlignment="Left" Margin="188,6,0,0" VerticalAlignment="Top" />
@@ -114,23 +114,25 @@
         </StackPanel>
         <StackPanel Name="spRight" Grid.Row="1" Grid.Column="1" Orientation="Vertical" Margin="5,0">
             <GroupBox Header="History" Height="355" HorizontalAlignment="Stretch" VerticalAlignment="Top" HorizontalContentAlignment="Stretch">
-                <StackPanel Orientation="Vertical"  Height="350" Width="509">
-                    <Canvas Height="312" HorizontalAlignment="Stretch" >
-                        <oxy:Plot Canvas.Left="0"  Canvas.Top="6" Height="324" Width="500" Name="MasterPlot">
+                <StackPanel Orientation="Vertical"  Height="322" Width="743">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <Label Content="Current Req/s : " Height="28" HorizontalAlignment="Left" Name="lbCurrReq" VerticalAlignment="Top" />
+                        <Label Height="28" HorizontalAlignment="Left" Name="lbCurrReqValue" VerticalAlignment="Top" />
+                        <Label Content="Max Request/s :" Height="28" HorizontalAlignment="Left" Name="label5" VerticalAlignment="Top" />
+                        <Label Height="28" HorizontalAlignment="Left" Name="labelMax" VerticalAlignment="Top" />
+                        <Label Content="Failed Request :" Height="28" HorizontalAlignment="Left" Name="label10" VerticalAlignment="Top" />
+                        <Label Height="28" HorizontalAlignment="Left" Name="labelFailed" VerticalAlignment="Top" />
+                        <Label Content="Timeout Request :" Height="28" HorizontalAlignment="Left" Name="lbTiemoutRequest" VerticalAlignment="Top" />
+                        <Label Height="28" HorizontalAlignment="Left" Name="lbTiemoutRequestValue" VerticalAlignment="Top" />
+                        <Label Content="Avg Request time: " Height="28" HorizontalAlignment="Left" Name="lbAvgTime" VerticalAlignment="Top" />
+                        <Label Height="28" HorizontalAlignment="Left" Name="lbAvgTimeValue" VerticalAlignment="Top" />                        
+                    </StackPanel>
+                    <Canvas Height="304" Width="736">
+                        <oxy:Plot Canvas.Left="3"  Canvas.Top="6" Height="288" Width="657" Name="MasterPlot" IsMouseWheelEnabled="False">
                             <oxy:LineSeries LineJoin="Round" Name="lineoxyavg"></oxy:LineSeries>
                             <oxy:LineSeries  Name="lineoxysum"></oxy:LineSeries>
                         </oxy:Plot>
                     </Canvas>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
-                        <Label Content="Max Request/s :" Height="28" HorizontalAlignment="Left" Name="label5" VerticalAlignment="Top"  />
-                        <Label Height="28" HorizontalAlignment="Left" Name="labelMax" VerticalAlignment="Top" />
-                        <Label Content="Failed Request :" Height="28" HorizontalAlignment="Left" Name="label10" VerticalAlignment="Top"  />
-                        <Label Height="28" HorizontalAlignment="Left" Name="labelFailed" VerticalAlignment="Top"  />
-                        <Label Content="Timeout Request :" Height="28" HorizontalAlignment="Left" Name="lbTiemoutRequest" VerticalAlignment="Top" />
-                        <Label Height="28" HorizontalAlignment="Left" Name="lbTiemoutRequestValue" VerticalAlignment="Top" />
-                        <Label Content="Avg Request time: " Height="28" HorizontalAlignment="Left" Name="lbAvgTime" VerticalAlignment="Top" />
-                        <Label Height="28" HorizontalAlignment="Left" Name="lbAvgTimeValue" VerticalAlignment="Top" />
-                    </StackPanel>
                 </StackPanel>
             </GroupBox>
             <GroupBox Header="Console" VerticalAlignment="Top" HorizontalAlignment="Stretch"  HorizontalContentAlignment="Left">
