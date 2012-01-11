@@ -152,6 +152,13 @@ namespace Lib
             configs.Add("MaxIOThreads", miot.ToString());
             #endregion
 
+            #region Thread pool Max threads
+            int minwt, miniot;
+            ThreadPool.GetMinThreads(out minwt, out miniot);
+            configs.Add("MinWorkerThreads", minwt.ToString());
+            configs.Add("MinIOThreads", miniot.ToString());
+            #endregion
+
             return configs;
         }
     }

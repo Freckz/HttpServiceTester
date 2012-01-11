@@ -109,6 +109,8 @@ namespace RequestTester
             savedConfigValues.Add(ConfigType.AvailableWorkerThreads, -1);
             savedConfigValues.Add(ConfigType.RequestQueueLimit, -1);
             savedConfigValues.Add(ConfigType.ParallelDistantRequestValue, -1);
+            savedConfigValues.Add(ConfigType.MinWorkerThreads, -1);
+            savedConfigValues.Add(ConfigType.MinIOThreads, -1);
 
         }
 
@@ -143,6 +145,12 @@ namespace RequestTester
                         break;
                     case "ParallelDistantRequestValue":
                         tbParallelDistantRequest.Text = arrConf[1];
+                        break;
+                    case "MinWorkerThreads":
+                        tbMinWT.Text = arrConf[1];
+                        break;
+                    case "MinIOThreads":
+                        tbMinIOT.Text = arrConf[1];
                         break;
                 }
             }
