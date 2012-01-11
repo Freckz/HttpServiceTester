@@ -69,6 +69,8 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
@@ -93,14 +95,18 @@
                     <TextBlock Grid.Row="4" Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="tbAvailableWT" Text="0" Width="54" VerticalAlignment="Bottom" />
                     <Label Grid.Row="5" Grid.Column="0" Content="Available io threads: " Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbAvIOThreads" VerticalAlignment="Top" />
                     <TextBlock Grid.Row="5" Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="tbAvailableIOT" Text="0" Width="54" VerticalAlignment="Bottom" />
-                    <Label Grid.Row="6" Grid.Column="0" Content="Requests in queue: " Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbRuntimeRequestsInQueue" VerticalAlignment="Top" />
-                    <TextBlock Grid.Row="6" Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="tbRuntimeRequestsInQueue" Text="0" Width="54" VerticalAlignment="Bottom" />
-                    <Label Grid.Row="7" Grid.Column="0" Content="Request queue limit: " Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbRequestQueueLimit" VerticalAlignment="Top" />
-                    <TextBlock Grid.Row="7" Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="tbRequestQueueLimit" Text="0" Width="54" VerticalAlignment="Bottom" />
-                    <TextBox Grid.Row="7" Grid.Column="2" Height="23" HorizontalAlignment="Left" Name="tbRequestQueueLimitValue" Text="0" Width="54" />
-                    <Label Grid.Row="8" Grid.Column="0" Content="Parallel distant requests: " Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbParallelDistantRequest" VerticalAlignment="Top" />
-                    <TextBlock Grid.Row="8" Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="tbParallelDistantRequest" Text="0" Width="54" VerticalAlignment="Bottom" />
-                    <StackPanel Grid.Row="8" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <Label Grid.Row="6" Grid.Column="0" Content="Min worker threads: " Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbMinWorkerThreads" VerticalAlignment="Top" />
+                    <TextBlock Grid.Row="6" Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="tbMinWT" Text="0" Width="54" VerticalAlignment="Bottom" />
+                    <Label Grid.Row="7" Grid.Column="0" Content="Min io threads: " Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbMinIOThreads" VerticalAlignment="Top" />
+                    <TextBlock Grid.Row="7" Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="tbMinIOT" Text="0" Width="54" VerticalAlignment="Bottom" />
+                    <Label Grid.Row="8" Grid.Column="0" Content="Requests in queue: " Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbRuntimeRequestsInQueue" VerticalAlignment="Top" />
+                    <TextBlock Grid.Row="8" Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="tbRuntimeRequestsInQueue" Text="0" Width="54" VerticalAlignment="Bottom" />
+                    <Label Grid.Row="9" Grid.Column="0" Content="Request queue limit: " Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbRequestQueueLimit" VerticalAlignment="Top" />
+                    <TextBlock Grid.Row="9" Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="tbRequestQueueLimit" Text="0" Width="54" VerticalAlignment="Bottom" />
+                    <TextBox Grid.Row="10" Grid.Column="2" Height="23" HorizontalAlignment="Left" Name="tbRequestQueueLimitValue" Text="0" Width="54" />
+                    <Label Grid.Row="10" Grid.Column="0" Content="Parallel distant requests: " Height="28" HorizontalAlignment="Left" Margin="6,6,0,0" Name="lbParallelDistantRequest" VerticalAlignment="Top" />
+                    <TextBlock Grid.Row="11" Grid.Column="1" Height="23" HorizontalAlignment="Left" Name="tbParallelDistantRequest" Text="0" Width="54" VerticalAlignment="Bottom" />
+                    <StackPanel Grid.Row="11" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Stretch">
                         <TextBox Height="23" HorizontalAlignment="Left" Name="tbParallelDistantRequestValue" Text="0" Width="54" />
                         <Button Height="32" HorizontalAlignment="Left" Name="validate" VerticalAlignment="Top" Background="Transparent" BorderBrush="{x:Null}" Click="ChangeConfig" Margin="16,3,2,3" Width="32">
                             <Image Source="Resources\Ok.png"></Image>

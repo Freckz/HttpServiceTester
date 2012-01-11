@@ -13,6 +13,8 @@ namespace Lib
         AvailableWorkerThreads,
         AvailableIOThreads,
         RequestQueueLimit,
-        ParallelDistantRequestValue
+        ParallelDistantRequestValue,
+        MinWorkerThreads,
+        MinIOThreads,
     }
 }
