@@ -1,0 +1,6 @@
+C:\__Protos\HttpServiceTester\ConfigUpdate\bin\Debug\ConfigUpdate.exe.config
+C:\__Protos\HttpServiceTester\ConfigUpdate\bin\Debug\ConfigUpdate.exe
+C:\__Protos\HttpServiceTester\ConfigUpdate\bin\Debug\ConfigUpdate.pdb
+C:\__Protos\HttpServiceTester\ConfigUpdate\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\__Protos\HttpServiceTester\ConfigUpdate\obj\x86\Debug\ConfigUpdate.exe
+C:\__Protos\HttpServiceTester\ConfigUpdate\obj\x86\Debug\ConfigUpdate.pdb

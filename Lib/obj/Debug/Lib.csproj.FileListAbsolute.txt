@@ -1,0 +1,5 @@
+C:\__Protos\HttpServiceTester\Lib\bin\Debug\Lib.dll
+C:\__Protos\HttpServiceTester\Lib\bin\Debug\Lib.pdb
+C:\__Protos\HttpServiceTester\Lib\obj\Debug\ResolveAssemblyReference.cache
+C:\__Protos\HttpServiceTester\Lib\obj\Debug\Lib.dll
+C:\__Protos\HttpServiceTester\Lib\obj\Debug\Lib.pdb

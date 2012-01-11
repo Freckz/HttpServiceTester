@@ -1,0 +1,9 @@
+C:\__Protos\HttpServiceTester\Server\bin\Server.dll
+C:\__Protos\HttpServiceTester\Server\bin\Server.pdb
+C:\__Protos\HttpServiceTester\Server\bin\EntityFramework.dll
+C:\__Protos\HttpServiceTester\Server\bin\Lib.dll
+C:\__Protos\HttpServiceTester\Server\bin\Lib.pdb
+C:\__Protos\HttpServiceTester\Server\bin\EntityFramework.xml
+C:\__Protos\HttpServiceTester\Server\obj\Debug\ResolveAssemblyReference.cache
+C:\__Protos\HttpServiceTester\Server\obj\Debug\Server.dll
+C:\__Protos\HttpServiceTester\Server\obj\Debug\Server.pdb

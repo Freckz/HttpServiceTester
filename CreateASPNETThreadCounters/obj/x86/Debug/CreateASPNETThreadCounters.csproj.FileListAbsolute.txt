@@ -1,0 +1,6 @@
+C:\__Protos\HttpServiceTester\CreateASPNETThreadCounters\bin\Debug\CreateASPNETThreadCounters.exe.config
+C:\__Protos\HttpServiceTester\CreateASPNETThreadCounters\bin\Debug\CreateASPNETThreadCounters.exe
+C:\__Protos\HttpServiceTester\CreateASPNETThreadCounters\bin\Debug\CreateASPNETThreadCounters.pdb
+C:\__Protos\HttpServiceTester\CreateASPNETThreadCounters\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\__Protos\HttpServiceTester\CreateASPNETThreadCounters\obj\x86\Debug\CreateASPNETThreadCounters.exe
+C:\__Protos\HttpServiceTester\CreateASPNETThreadCounters\obj\x86\Debug\CreateASPNETThreadCounters.pdb
