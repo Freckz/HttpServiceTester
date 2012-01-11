@@ -2,7 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
-        Title="RequestTester" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" >
+        Title="RequestTester" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="480"></ColumnDefinition>
@@ -136,6 +137,25 @@
                         <Label Height="28" HorizontalAlignment="Left" Name="lbTiemoutRequestValue" VerticalAlignment="Top" />
                         <Label Content="Avg Request time: " Height="28" HorizontalAlignment="Left" Name="lbAvgTime" VerticalAlignment="Top" />
                         <Label Height="28" HorizontalAlignment="Left" Name="lbAvgTimeValue" VerticalAlignment="Top" />
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Requests sent" Height="355" HorizontalAlignment="Stretch" VerticalAlignment="Top" HorizontalContentAlignment="Stretch">
+                <StackPanel Orientation="Vertical"  Height="350" Width="509">
+                    <Canvas Height="312" HorizontalAlignment="Stretch" >
+                        <oxy:Plot Canvas.Left="0"  Canvas.Top="6" Height="324" Width="500" Name="PlotRequestsSent" LegendSymbolLength="36" LegendPlacement="Outside"  >
+                            <oxy:LineSeries LineJoin="Round" Name="lineoxyhome" Title="sent"></oxy:LineSeries>
+                            <oxy:LineSeries  Name="lineoxyreceivesearch" Title="search"></oxy:LineSeries>
+                            <oxy:LineSeries  Name="lineoxyreceivehome" Title="home"></oxy:LineSeries>
+                        </oxy:Plot>
+                    </Canvas>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                        <Label Content="Rq sent to home and search:" Height="28" HorizontalAlignment="Left" Name="lbNbRequestsSent" VerticalAlignment="Top"  />
+                        <Label Height="28" HorizontalAlignment="Left" Name="lbNbRequestsSentValue" VerticalAlignment="Top" />
+                        <Label Content="Nb Requests to home :" Height="28" HorizontalAlignment="Left" Name="lbNbResponseFromHome" VerticalAlignment="Top"  />
+                        <Label Height="28" HorizontalAlignment="Left" Name="lbNbResponseFromHomeValue" VerticalAlignment="Top" />
+                        <Label Content="Nb Requests to search :" Height="28" HorizontalAlignment="Left" Name="lbNbResponseFromSearch" VerticalAlignment="Top"  />
+                        <Label Height="28" HorizontalAlignment="Left" Name="lbNbResponseFromSearchValue" VerticalAlignment="Top"  />
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
