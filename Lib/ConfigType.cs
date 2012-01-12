@@ -16,5 +16,7 @@ namespace Lib
         ParallelDistantRequestValue,
         MinWorkerThreads,
         MinIOThreads,
+        Timeout,
+        ReadWriteTimeout
     }
 }

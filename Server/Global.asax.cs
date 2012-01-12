@@ -29,6 +29,7 @@ namespace Server
 
         }
 
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

@@ -82,6 +82,12 @@ namespace Lib
                     case ConfigType.ParallelDistantRequestValue:
                         Config.ParallelRequests = int.Parse(conf[2]);
                         break;
+                    case ConfigType.Timeout:
+                        Config.Timeout = int.Parse(conf[2]);
+                        break;
+                    case ConfigType.ReadWriteTimeout:
+                        Config.ReadWriteTimeout = int.Parse(conf[2]);
+                        break;
                     case ConfigType.AvailableIOThreads:
                     case ConfigType.AvailableWorkerThreads:
                     default:
@@ -157,6 +163,11 @@ namespace Lib
             ThreadPool.GetMinThreads(out minwt, out miniot);
             configs.Add("MinWorkerThreads", minwt.ToString());
             configs.Add("MinIOThreads", miniot.ToString());
+            #endregion
+
+            #region Timeout
+            configs.Add("Timeout", Config.Timeout.ToString());
+            configs.Add("ReadWriteTimeout", Config.ReadWriteTimeout.ToString());
             #endregion
 
             return configs;

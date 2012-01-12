@@ -41,7 +41,8 @@ namespace RequestTester
         private int requestDone;
         private int requestFailed;
         private int requestTimeout;
-        private long totalTime;
+        private long totalTimeHome;
+        private long totalTimeSearch;
         private long requestsSentToHome;
         private long requestsSentToSearch;
         private long requestsReceivedFromHome;
@@ -114,8 +115,7 @@ namespace RequestTester
                     gbRemoteConf.IsEnabled = true;
                 }));
 
-
-
+            
             savedConfigValues.Add(ConfigType.MaxWorkerThreads, -1);
             savedConfigValues.Add(ConfigType.MaxIOThreads, -1);
             savedConfigValues.Add(ConfigType.MaxConnections, -1);
@@ -125,6 +125,8 @@ namespace RequestTester
             savedConfigValues.Add(ConfigType.ParallelDistantRequestValue, -1);
             savedConfigValues.Add(ConfigType.MinWorkerThreads, -1);
             savedConfigValues.Add(ConfigType.MinIOThreads, -1);
+            savedConfigValues.Add(ConfigType.Timeout, -1);
+            savedConfigValues.Add(ConfigType.ReadWriteTimeout, -1);
 
         }
 
@@ -165,6 +167,12 @@ namespace RequestTester
                         break;
                     case "MinIOThreads":
                         tbMinIOT.Text = arrConf[1];
+                        break;
+                    case "Timeout":
+                        tbRequestTimeout.Text = arrConf[1];
+                        break;
+                    case "ReadWriteTimeout":
+                        tbRequestRWTimeout.Text = arrConf[1];
                         break;
                 }
             }
@@ -237,6 +245,14 @@ namespace RequestTester
             if (int.TryParse(tbParallelDistantRequestValue.Text, out parallelDistantRequestValue) && savedConfigValues[ConfigType.ParallelDistantRequestValue] != parallelDistantRequestValue)
                 newConfigs.Add(ConfigType.ParallelDistantRequestValue, parallelDistantRequestValue);
 
+            int timeout;
+            if (int.TryParse(tbRequestTimeoutValue.Text, out timeout) && savedConfigValues[ConfigType.Timeout] != timeout)
+                newConfigs.Add(ConfigType.Timeout, timeout);
+
+            int rWTimeout;
+            if (int.TryParse(tbRequestRWTimeoutValue.Text, out rWTimeout) && savedConfigValues[ConfigType.ReadWriteTimeout] != rWTimeout)
+                newConfigs.Add(ConfigType.ReadWriteTimeout, rWTimeout);
+
             string message = string.Empty;
             foreach(KeyValuePair<ConfigType, int> kvp in newConfigs)
             {
@@ -304,7 +320,7 @@ namespace RequestTester
                     ThreadPool.QueueUserWorkItem(new WaitCallback(GenerateRequest), RequestDestination.Home);
                     countRequest+=2;
 	            }
-                if (countRequest == Frequency)
+                if (countRequest >= Frequency)
                 {
                     int waiting = (int)(1000 - sw.ElapsedMilliseconds);
                     if(waiting > 0)
@@ -357,25 +373,22 @@ namespace RequestTester
             lineoxysum.ItemsSource = ls.Points;
 
             labelMax.Content = ls.Points.Count > 0 ? ls.Points.Max(p => Math.Abs(p.Y)).ToString("F2") : "0";
+            lbCurrReqValue.Content = ls.Points.Last().Y.ToString("F2");
             #endregion
 
-            #region Avg response time
-            lbCurrReqValue.Content = ls.Points.Last().Y.ToString("F2");
-            /*
-             *  Line series avg
-             * */
+            #region Avg home response time
 
             double avg = 0;
             if (requestTotal > 0)
-                avg = (((double)totalTime / (double)requestTotal) / 1000d);
+                avg = (((double)totalTimeHome / (((double)requestTotal) / 2d)) / 1000d);
 
             ls = new LineSeries("tmp");
 
-            if (lineoxyavg.ItemsSource == null)
+            if (lineoxyavgH.ItemsSource == null)
                 ls.Points = new List<IDataPoint>();
             else
             {
-                foreach (DataPoint point in lineoxyavg.ItemsSource)
+                foreach (DataPoint point in lineoxyavgH.ItemsSource)
                 {
                     ls.Points.Add(new DataPoint(point.X, point.Y));
                 }
@@ -384,11 +397,41 @@ namespace RequestTester
             pointcount = ls.Points.Count;
             nextpoint = pointcount > 0 ? ls.Points.Max(p => p.X) + 1 : 1;
 
-            if (pointcount == 60)
+            if (pointcount == 100)
                 ls.Points.RemoveAt(0);
 
             ls.Points.Add(new DataPoint(nextpoint, avg));
-            lineoxyavg.ItemsSource = ls.Points;
+            lineoxyavgH.ItemsSource = ls.Points;
+            lbAvgHomeTimeValue.Content = avg.ToString("F2");
+            #endregion
+
+            #region Avg search response time
+            lbCurrReqValue.Content = ls.Points.Last().Y.ToString("F2");
+
+             avg = 0;
+            if (requestTotal > 0)
+                avg = (((double)totalTimeSearch / (((double)requestTotal)/2d)) / 1000d);
+
+            ls = new LineSeries("tmp");
+
+            if (lineoxyavgS.ItemsSource == null)
+                ls.Points = new List<IDataPoint>();
+            else
+            {
+                foreach (DataPoint point in lineoxyavgS.ItemsSource)
+                {
+                    ls.Points.Add(new DataPoint(point.X, point.Y));
+                }
+            }
+
+            pointcount = ls.Points.Count;
+            nextpoint = pointcount > 0 ? ls.Points.Max(p => p.X) + 1 : 1;
+
+            if (pointcount == 100)
+                ls.Points.RemoveAt(0);
+
+            ls.Points.Add(new DataPoint(nextpoint, avg));
+            lineoxyavgS.ItemsSource = ls.Points;
             #endregion
 
             #region Requests sent to home
@@ -413,7 +456,7 @@ namespace RequestTester
             pointcount = ls.Points.Count;
             nextpoint = pointcount > 0 ? ls.Points.Max(p => p.X) + 1 : 1;
 
-            if (pointcount == 60)
+            if (pointcount == 100)
                 ls.Points.RemoveAt(0);
 
             ls.Points.Add(new DataPoint(nextpoint, requestsSentToSearch));
@@ -443,7 +486,7 @@ namespace RequestTester
             pointcount = ls.Points.Count;
             nextpoint = pointcount > 0 ? ls.Points.Max(p => p.X) + 1 : 1;
 
-            if (pointcount == 60)
+            if (pointcount == 100)
                 ls.Points.RemoveAt(0);
 
             ls.Points.Add(new DataPoint(nextpoint, requestsReceivedFromHome));
@@ -457,8 +500,6 @@ namespace RequestTester
              * */
 
             ls = new LineSeries("tmp");
-            ls.Title = "Requests received from search";
-            ls.Color = OxyColors.Olive;
 
             if (lineoxyreceivesearch.ItemsSource == null)
                 ls.Points = new List<IDataPoint>();
@@ -474,7 +515,7 @@ namespace RequestTester
             pointcount = ls.Points.Count;
             nextpoint = pointcount > 0 ? ls.Points.Max(p => p.X) + 1 : 1;
 
-            if (pointcount == 60)
+            if (pointcount == 100)
                 ls.Points.RemoveAt(0);
 
             ls.Points.Add(new DataPoint(nextpoint, requestsReceivedFromSearch));
@@ -487,7 +528,6 @@ namespace RequestTester
 
             labelFailed.Content = requestFailed;
             lbTiemoutRequestValue.Content = requestTimeout;
-            lbAvgTimeValue.Content = avg.ToString("F3");
         }
         #endregion
 
@@ -512,24 +552,27 @@ namespace RequestTester
             try
             {
                 WebRequest request = WebRequest.Create(__requestUrl);
+                Interlocked.Increment(ref requestDone);
                 //request.Timeout = 7000;
                 DateTime now = DateTime.Now;
-                WebResponse response = request.GetResponse();
-                Interlocked.Add(ref totalTime, (long)(DateTime.Now - now).TotalMilliseconds);
-                response.Close();
-                Interlocked.Increment(ref requestDone);
-                Interlocked.Increment(ref requestTotal);
-                switch (dest)
+                request.BeginGetResponse(new AsyncCallback((result) =>
                 {
-                    case RequestDestination.Home:
-                        Interlocked.Increment(ref requestsReceivedFromHome);
-                        break;
-                    case RequestDestination.Search:
-                    default:
-                        __requestUrl = RequestUrl;
-                        Interlocked.Increment(ref requestsReceivedFromSearch);
-                        break;
-                }
+                    WebResponse response = ((WebRequest)result.AsyncState).EndGetResponse(result);
+                    Interlocked.Increment(ref requestTotal);
+                    switch (dest)
+                    {
+                        case RequestDestination.Home:
+                            Interlocked.Add(ref totalTimeHome, (long)(DateTime.Now - now).TotalMilliseconds);
+                            Interlocked.Increment(ref requestsReceivedFromHome);
+                            break;
+                        case RequestDestination.Search:
+                            Interlocked.Add(ref totalTimeSearch, (long)(DateTime.Now - now).TotalMilliseconds);
+                            Interlocked.Increment(ref requestsReceivedFromSearch);
+                            break;
+
+                    }
+                    response.Close();
+                }), request);
             }
             catch(WebException we)
             {

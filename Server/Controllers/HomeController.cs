@@ -26,6 +26,9 @@ namespace Server.Controllers
             Int32.TryParse(time, out sleepTime);// && sleepTime > 0)
 
             int sent = 0;
+            int cpt = size / bufferSize;
+            if(cpt > 0)
+                sleepTime = sleepTime / cpt;
             while (sent < size * 1024)
             {
                 for (int i = 0; i < bufferSize; i++)

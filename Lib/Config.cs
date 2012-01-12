@@ -20,5 +20,8 @@ namespace Lib
                  _parallelRequests = value;
             }
         }
+
+        public static int Timeout { get; set; }
+        public static int ReadWriteTimeout { get; set; }
     }
 }

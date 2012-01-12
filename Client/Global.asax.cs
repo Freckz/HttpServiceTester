@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Threading;
 using Lib;
+using System.Net;
 
 namespace Client
 {
@@ -36,6 +37,10 @@ namespace Client
             AreaRegistration.RegisterAllAreas();
 
             Config.ParallelRequests = 4;
+            HttpWebRequest r = (HttpWebRequest)HttpWebRequest.Create("http://www.google.fr");
+            Config.Timeout = r.Timeout;
+            Config.ReadWriteTimeout = r.ReadWriteTimeout;
+            Config.Timeout = 500;
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
@@ -45,10 +50,16 @@ namespace Client
             listenerThread.Start();
         }
 
+        ListenerSocket listener;
         void ListenForTcpMessages()
         {
-            ListenerSocket listener = new ListenerSocket("127.0.0.1", 4999, new ConfigMessagesDispatcher());
+            listener = new ListenerSocket("127.0.0.1", 4999, new ConfigMessagesDispatcher());
             listener.Listen();
+        }
+
+        protected void Application_End()
+        {
+            listener.Dispose();
         }
     }
 }

@@ -21,9 +21,17 @@ namespace Server.Controllers
             Parallel.For(0, Config.ParallelRequests, i =>
             {
                 string requestUrl = "http://Server.loc";
+                bool withTime = false;
                 if (!string.IsNullOrEmpty(Request["time"]))
+                {
                     requestUrl += "?time=" + Request["time"];
+                    withTime = true;
+                }
+                if (!string.IsNullOrEmpty(Request["size"]))
+                    requestUrl += string.Format("{0}size={1}", withTime ? "&" : "?", Request["size"]);
                 HttpWebRequest request = HttpWebRequest.Create(requestUrl) as HttpWebRequest;
+                request.ReadWriteTimeout = Config.ReadWriteTimeout;
+                request.Timeout = Config.Timeout;
                 WebResponse response = request.GetResponse();
                 
                 Stream s = response.GetResponseStream();

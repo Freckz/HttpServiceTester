@@ -34,6 +34,8 @@ namespace Server.Controllers
                 if (!string.IsNullOrEmpty(Request["size"]))
                     requestUrl += string.Format("{0}size={1}", withTime ? "&" : "?", Request["size"]);
                 HttpWebRequest request = HttpWebRequest.Create(requestUrl) as HttpWebRequest;
+                request.ReadWriteTimeout = Config.ReadWriteTimeout;
+                request.Timeout = Config.Timeout;
                 AsyncManager.OutstandingOperations.Increment();
                 Interlocked.Increment(ref AsyncOperations);
                 Interlocked.Increment(ref RequestsRead);
@@ -66,18 +68,16 @@ namespace Server.Controllers
             AsyncManager.OutstandingOperations.Decrement();
             Interlocked.Decrement(ref RequestsRead);
 
-            if (AsyncManager.OutstandingOperations.Count == 0)
-            {
-                Response.Flush();
-                Response.End();
-                Response.Close();
-            }
 
         }
 
         public ActionResult IndexCompleted()
         {
-            return View();
+
+                Response.Flush();
+                Response.End();
+                Response.Close();
+                return null;
         }
     }
 }
