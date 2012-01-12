@@ -350,7 +350,7 @@ namespace RequestTester
             int pointcount = ls.Points.Count;
             double nextpoint = pointcount > 0 ? ls.Points.Max(p => p.X) + 1 : 1;
 
-            if (pointcount == 60)
+            if (pointcount == 100)
                 ls.Points.RemoveAt(0);
 
             ls.Points.Add(new DataPoint(nextpoint, e.ProgressPercentage));
@@ -360,6 +360,7 @@ namespace RequestTester
             #endregion
 
             #region Avg response time
+            lbCurrReqValue.Content = ls.Points.Last().Y.ToString("F2");
             /*
              *  Line series avg
              * */

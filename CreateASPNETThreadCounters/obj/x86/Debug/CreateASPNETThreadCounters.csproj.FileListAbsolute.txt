@@ -4,3 +4,15 @@ C:\__Protos\HttpServiceTester\CreateASPNETThreadCounters\bin\Debug\CreateASPNETT
 C:\__Protos\HttpServiceTester\CreateASPNETThreadCounters\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\__Protos\HttpServiceTester\CreateASPNETThreadCounters\obj\x86\Debug\CreateASPNETThreadCounters.exe
 C:\__Protos\HttpServiceTester\CreateASPNETThreadCounters\obj\x86\Debug\CreateASPNETThreadCounters.pdb
+C:\Users\leguellec\Git\HttpServiceTester\CreateASPNETThreadCounters\bin\Debug\CreateASPNETThreadCounters.exe.config
+C:\Users\leguellec\Git\HttpServiceTester\CreateASPNETThreadCounters\bin\Debug\CreateASPNETThreadCounters.exe
+C:\Users\leguellec\Git\HttpServiceTester\CreateASPNETThreadCounters\bin\Debug\CreateASPNETThreadCounters.pdb
+C:\Users\leguellec\Git\HttpServiceTester\CreateASPNETThreadCounters\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\leguellec\Git\HttpServiceTester\CreateASPNETThreadCounters\obj\x86\Debug\CreateASPNETThreadCounters.exe
+C:\Users\leguellec\Git\HttpServiceTester\CreateASPNETThreadCounters\obj\x86\Debug\CreateASPNETThreadCounters.pdb
+C:\Projets\HttpServiceTester\CreateASPNETThreadCounters\bin\Debug\CreateASPNETThreadCounters.exe.config
+C:\Projets\HttpServiceTester\CreateASPNETThreadCounters\bin\Debug\CreateASPNETThreadCounters.exe
+C:\Projets\HttpServiceTester\CreateASPNETThreadCounters\bin\Debug\CreateASPNETThreadCounters.pdb
+C:\Projets\HttpServiceTester\CreateASPNETThreadCounters\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Projets\HttpServiceTester\CreateASPNETThreadCounters\obj\x86\Debug\CreateASPNETThreadCounters.exe
+C:\Projets\HttpServiceTester\CreateASPNETThreadCounters\obj\x86\Debug\CreateASPNETThreadCounters.pdb

@@ -1,5 +1,10 @@
 ﻿namespace CreateASPNETThreadCounters
 {
+
+
+    //source for this code from MSDN
+    //http://msdn.microsoft.com/en-us/library/ff650682.aspx
+
     using System;
     using System.Diagnostics;
 

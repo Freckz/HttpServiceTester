@@ -4,3 +4,15 @@ C:\__Protos\HttpServiceTester\ConfigUpdate\bin\Debug\ConfigUpdate.pdb
 C:\__Protos\HttpServiceTester\ConfigUpdate\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\__Protos\HttpServiceTester\ConfigUpdate\obj\x86\Debug\ConfigUpdate.exe
 C:\__Protos\HttpServiceTester\ConfigUpdate\obj\x86\Debug\ConfigUpdate.pdb
+C:\Users\leguellec\Git\HttpServiceTester\ConfigUpdate\bin\Debug\ConfigUpdate.exe.config
+C:\Users\leguellec\Git\HttpServiceTester\ConfigUpdate\bin\Debug\ConfigUpdate.exe
+C:\Users\leguellec\Git\HttpServiceTester\ConfigUpdate\bin\Debug\ConfigUpdate.pdb
+C:\Users\leguellec\Git\HttpServiceTester\ConfigUpdate\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\leguellec\Git\HttpServiceTester\ConfigUpdate\obj\x86\Debug\ConfigUpdate.exe
+C:\Users\leguellec\Git\HttpServiceTester\ConfigUpdate\obj\x86\Debug\ConfigUpdate.pdb
+C:\Projets\HttpServiceTester\ConfigUpdate\bin\Debug\ConfigUpdate.exe.config
+C:\Projets\HttpServiceTester\ConfigUpdate\bin\Debug\ConfigUpdate.exe
+C:\Projets\HttpServiceTester\ConfigUpdate\bin\Debug\ConfigUpdate.pdb
+C:\Projets\HttpServiceTester\ConfigUpdate\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Projets\HttpServiceTester\ConfigUpdate\obj\x86\Debug\ConfigUpdate.exe
+C:\Projets\HttpServiceTester\ConfigUpdate\obj\x86\Debug\ConfigUpdate.pdb
